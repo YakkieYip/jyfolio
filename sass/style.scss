@@ -9,22 +9,96 @@
 
 @import 'normalize';
 @import 'typography';
+@import 'animate';
+@import 'hover';
 @import 'navigation';
 @import 'sidebar';
 @import 'comments';
 @import 'footer';
+
+
+/*
+====================================
+Colour Mixins
+====================================
+*/
+//Heading Color
+$black: #333;
+
+// Call To Action, Accent Color
+$purp: #6A2E8F;
+
+//Paragraph Color
+$darkgrey: #999;
+
+//Font-Awesome/Dev Icon Color
+$grey: #c0c0c0;
+
+//Main Nav Background Color. Background Color Skills Divs
+$lightgrey: #f1f1f1;
+
+//Background Color of Sections?
+$offwhite: #f4f4f4;
+
+
+
 /*
 ====================================
 Default Styling
 ====================================
 */
 
+@mixin fontSize($number) {
+	font-size: $number * 1px;
+	font-size: ($number / 10) * 1rem;
+	// font-weight: ($weight);
+}
+
+// font-family: 'Lato', sans-serif;
+// font-family: 'Montserrat', sans-serif;
+
+// *********************** GENERAL ***********************
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	@include fontSize(16);
+	color: #333;
+	font-family: 'Lato', sans-serif;
+}
+
+p {
+	font-family: 'Lato', sans-serif;
+	@include fontSize(14);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
 img {
 	max-width: 100%;
 }
 
-body {
-	color: #333;
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+//logo within nav?
+header .logo span {
+    display: inline-block;
+    width: 100%;
+    letter-spacing: 2px;
+    margin: 0px;
+    margin-top: 20px;
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Montserrat';
 }
 
 .container {
@@ -42,7 +116,18 @@ body {
 	width: 100%;
 }
 
+// *************** Nav Style ********************
 
+header nav {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    z-index: 9999999;
+    text-align: center;
+    background: #333333;
+    padding-top: 20%;
+}
 
 
 
