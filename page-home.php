@@ -39,16 +39,20 @@ get_header();  ?>
               <!--<pre><?php //print_r($image);?></pre> -->
               <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']?>">
 
+              <!-- Title Project -->
               <h2><?php the_title(); ?></h2>
+              <!-- Project Description -->
               <?php the_content(); ?>
 
               <p><?php the_sub_field(''); ?></p>
               <div class="projects">
               <!-- when you have stuff in the sub fields (ie: 1-lvl deep inside the repeater), do stuff -->
+                <p>Built with:</p>
                 <?php while( has_sub_field('technologies') ): ?>
                   <!-- when you have stuff (parent) inside, go do stuff -->
                   <div class="project">
                   <!-- I'm the stuff / sub fields inside the parent! -->
+
                     <p><?php the_sub_field('technology'); ?></p>
                     <?php $image = get_sub_field('image'); ?>
                     <img src="<?php echo $image['sizes']['square'] ?>">

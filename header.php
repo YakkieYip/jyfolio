@@ -22,6 +22,7 @@
 <header>
   <div class="container">
     <nav class="fixedNav">
+      <span><h1>Jackie Yip</h1></span>
       <?php wp_nav_menu( array(
            'container' => false,
            'theme_location' => 'primary'
@@ -29,7 +30,10 @@
     </nav>  
 
   <!-- <pre><?php //print_r(the_post_thumbnail);?></pre> -->
-  <?php the_post_thumbnail('full'); ?> 
+  <section class="hero">
+    <h1>Hi, I’m Jackie Yip. I’d love to brainstorm and build a website for you!</h1>
+  </section>
+   
     <!-- <h1>
       <a href="<?php //echo home_url( '/' ); ?>" title="<?php //bloginfo( 'name', 'display' ); ?>" rel="home">
         <?php //bloginfo( 'name' ); ?>
