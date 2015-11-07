@@ -9,17 +9,14 @@ get_header();  ?>
 <div class="main">
   <div class="container">
     <div class="content">
+
+
+    <!-- ======================= PORTFOLIO ========================== -->
       <?php // Start the loop ?>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-        <section class="hero">
-          <!-- hero image goes here -->
-        </section>
-
-        <!-- Start our Custom Query -->
-
         <?php
-
+        // Start our Custom Query
         $projectsQuery = new WP_Query(
           array(
             'posts_per_page' => -1, //fat arrow for arrays
@@ -28,7 +25,7 @@ get_header();  ?>
             )
         ); ?>
 
-        <!-- this returns a boolean, ie: while this is still true, single arrow = method-->
+        <?php //this returns a boolean, ie: while this is still true, single arrow = method ?>
         <?php if ( $projectsQuery->have_posts() ) : ?>
           <!-- while we have posts, go do stuff to them  vvvvvvvv sets up any fields that are avail.-->
           <?php while ($projectsQuery->have_posts()) : $projectsQuery->the_post(); ?>
@@ -41,6 +38,7 @@ get_header();  ?>
 
               <!-- Title Project -->
               <h2><?php the_title(); ?></h2>
+              
               <!-- Project Description -->
               <?php the_content(); ?>
 
@@ -72,8 +70,11 @@ get_header();  ?>
       <?php endwhile; // end '.content' loop?>
 
        <?php the_content(); ?>
+
+
+
       <!-- ========================== SKILLS SECTION ==========================-->
-      <section class="skills">
+      <section id="skills" class="skills">
         <h2>Skills</h2>
         <?php if( have_rows('skills') ): ?>
 
@@ -94,7 +95,10 @@ get_header();  ?>
         <?php endif; ?>
       </section><!-- /section.skills-->
 
-      <?php echo do_shortcode( '[contact-form-7 id="31" title="Contact form 1"]' ); ?>
+
+      <section id="contact" class="contact">
+       <?php echo do_shortcode( '[contact-form-7 id="31" title="Contact form 1"]' ); ?>
+      </section>
 
     </div> <!-- /.content -->
   </div> <!-- /.container -->

@@ -1,9 +1,14 @@
+
+<!-- ========================== FOOTER ============================== -->
 <footer>
   <div class="container">
     <p>&copy; HackerYou <?php echo date('Y'); ?></p>
   </div>
 </footer>
+<!-- ========================= /footer ============================== -->
 
+
+<!-- SCRIPTS -->
 <script>
 /* Google Analytics! */
  var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID

@@ -286,4 +286,4 @@ function addClassToLink($attrs){
 
 // add_filter()
 
-// show_admin_bar( true );
+show_admin_bar( true );

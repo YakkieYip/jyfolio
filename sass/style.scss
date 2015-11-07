@@ -70,6 +70,8 @@ body, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
 	margin: 0;
 	padding: 0;
 }
@@ -99,10 +101,10 @@ header .logo span {
     font-family: 'Montserrat';
 }
 
-// .container {
-// 	max-width: 1200px;
-// 	margin: 0 auto;
-// }
+.container {
+	max-width: 1200px;
+	margin-left: 17%;
+}
 
 .content {
 	float: left;
@@ -117,8 +119,9 @@ header .logo span {
 // *************** Nav Style ********************
 
 nav.fixedNav {
+	// display: flex;
 	max-width: 20%;
-	// max-width: 250px;
+	width: 17%;
 	height: 100vh;
 	position: fixed;
 	opacity: 1;
@@ -151,12 +154,18 @@ header .open-navigation {
 	// -o-background-size: cover;
 	background-position: right top;
 	// background-size: cover;
-   margin-left: 0 300px;
 }
 
 .hero h1 {
-	padding: 20%;
-	margin-left: 200px;
+	padding: 250px;
+	margin: 0 200px;
+}
+
+// NAV MENU ITEMS
+
+nav ul.menu {
+	display: flex;
+	flex-direction: column;
 }
 
 
