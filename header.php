@@ -26,12 +26,19 @@
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/jylogocopy.png" alt="The web developer's personal logo."/>
         </div>
       </a>
+
       <?php wp_nav_menu( array(
            'container' => false,
            'theme_location' => 'primary'
          )); ?>
-    </nav>
 
+      <div class="social">
+        <a href="https://twitter.com/YakkieYip" alt="Twitter Logo" class="social-icon"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="https://github.com/YakkieYip"><i class="fa fa-github fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/jacquelineyip"><i class="fa fa-linkedin fa-2x"></i></a>
+      </div>
+    </nav>
+    
     <!-- ====================== END FIXED MAIN NAV ===============================-->  
     
 
