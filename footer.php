@@ -1,7 +1,7 @@
 
 <footer>
   <div class="container">
-    <p>&copy; Jackie Yip <?php echo date('Y'); ?></p>
+    <p>Developed with love. &copy; Jackie Yip <?php echo date('Y'); ?></p>
   </div>
 </footer>
 <!-- ====================== END FOOTER ============================== -->

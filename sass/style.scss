@@ -73,12 +73,12 @@ body, p {
     color: $black;
     margin: 0;
     padding: 0;
-    // letter-spacing: 1px;
+    letter-spacing: 1px;
 }
 
-// p {
-// 	line-height: 24px;
-// }
+p {
+	line-height: 20px;
+}
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
@@ -95,11 +95,15 @@ h5 {
 	@include fontSize(15);
 }
 
+section {
+	padding-top: 10px;
+}
+
 section h4 {
 	@include fontSize(18);
 	text-transform: uppercase;
 	text-align: center;
-	margin-top: 40px
+	margin: 40px 0;
 }
 
 img {
@@ -118,7 +122,7 @@ ul {
 nav .logo {
     display: inline-block;
     max-width: 40%;
-    letter-spacing: 1px;
+    // letter-spacing: 1px;
     margin-bottom: 50px;
     @include fontSize(18);
 }
@@ -157,6 +161,10 @@ nav.fixedNav {
 	background: rgba(241,241,241,0.95);
 	padding-top: 10%;
    text-align: center;
+   li {
+   	text-align: left;
+   	padding-left: 70px;
+   }
 }
 
 // header .open-navigation {
@@ -210,6 +218,7 @@ Project Styling
 }
 
 .projDetails p {
+	line-height: 24px;
 	color: $darkgrey;
 	margin-bottom: 20px;
 }
@@ -272,7 +281,7 @@ ul.techUsed li:nth-child(1) {
 .btn {
 	color: $black;
 	border: 2px solid $black;
-	letter-spacing: 1px;
+	// letter-spacing: 1px;
 	display: inline-block;
 	padding: 12px 20px;
 	margin-top: 25px;
@@ -292,6 +301,17 @@ ul.techUsed li:nth-child(1) {
 
 /*
 ===============================================================
+About Styling
+===============================================================
+*/
+
+.about p {
+	margin: 20px 0;
+}
+
+
+/*
+===============================================================
 Skills Styling
 ===============================================================
 */
@@ -304,15 +324,31 @@ ul.skillList {
 li.skillItem {
 	width: calc(33.33% - 20px);
 	text-align: center;
-	padding: 93px 20px;
+	padding: 30px 20px;
 	margin: 10px;
-	background: lightgray;
+	background: $lightgrey;
+	transition: all 0.3s ease-in-out;
 	i {
 		@include fontSize(60);
+		color: $purple;
+		transition: all 0.3s ease-in-out;
 	}
 	p {
-		margin: 10px 0;
+		margin: 15px 0;
+		text-transform: uppercase;
+		font-weight: 700;
+		transition: all 0.3s ease-in-out;
 	}
+}
+
+li.skillItem:hover i {
+	color: $black;
+	// transition: all 0.3s ease-in-out;
+}
+
+li.skillItem:hover p {
+	color: $purple;
+	// transition: all 0.3s ease-in-out;
 }
 
 /*
@@ -322,20 +358,44 @@ Contact Styling
 */
 
 .contact {
-	margin: 0 auto;
+	margin: 60px auto 0;
+	// margin-top: 80px; 
+	padding-top: 50px;
+	padding-bottom: 50px;
+	h4 {
+		margin-bottom: 50px; 	
+	}
 	.formWrap {
 		width: 500px;
 		margin: 0 auto;
 	}
 }
 
+form p {
+	margin-bottom: 20px;
+}
+
 input, textarea {
 	width: 100%;
-	border-bottom: 1px solid grey;
+   padding: 15px 5px 0;
+   border: none;
+	border-bottom: 1px solid $purple;
 }
 
 input[type=submit] {
-	width: 50%;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 20px;
+	width: 32%;
+	padding: 15px;
+	border: 1px solid $purple;
+	background: none;
+	letter-spacing: 1px;
+	transition: all 0.4s ease-in-out;
+	&:hover {
+		background: $purple;
+		color: $offwhite;
+		transition: all 0.4s ease-in-out; 
+	}
 }
 
 
@@ -346,7 +406,10 @@ Footer Styling
 */
 
 footer {
-	text-align: center;
+	p {
+		padding: 20px 0;
+		text-align: center;
+	}
 }
 
 
