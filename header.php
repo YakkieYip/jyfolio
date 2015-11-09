@@ -15,28 +15,38 @@
 
     <?php wp_head(); ?>
   </head>
-
+  
+  <?php // Load our body tag ?>
   <body <?php body_class(); ?>>
+  
+  <!-- ========================= BEGIN FIXED MAIN NAV ===========================-->
+    <nav class="fixedNav">
+      <a href="#jackieyip">
+        <div class="logo">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/jylogocopy.png" alt="The web developer's personal logo."/>
+        </div>
+      </a>
+      <?php wp_nav_menu( array(
+           'container' => false,
+           'theme_location' => 'primary'
+         )); ?>
+    </nav>
 
-  <!--  HEADER -->
-  <header>
-      <!-- Fixed Main  -->
-      <nav class="fixedNav">
-        <?php wp_nav_menu( array(
-             'container' => false,
-             'theme_location' => 'primary'
-           )); ?>
-      </nav>  
-    <div class="container">
-    <!-- <pre><?php //print_r(the_post_thumbnail);?></pre> -->
-    <section class="hero">
-      <h1>Hi, I’m Jackie Yip. I’d love to brainstorm and build a website for you!</h1>
-    </section>
-      <!-- <h1>
-        <a href="<?php //echo home_url( '/' ); ?>" title="<?php //bloginfo( 'name', 'display' ); ?>" rel="home">
-          <?php //bloginfo( 'name' ); ?>
-        </a>
-      </h1> -->
-    </div> <!-- /.container -->
-  </header><!--/.header-->
+    <!-- ====================== END FIXED MAIN NAV ===============================-->  
+    
+
+    <!-- ======================= BEGIN HEADER =====================================-->
+    <header id="jackieyip">
+      <div class="headerBlurb">
+      <!-- <pre><?php //print_r(the_post_thumbnail);?></pre> -->
+      
+        <h1 class="hero">Hi, I’m Jackie Yip. I’d love to brainstorm and build a website for you!</h1>
+        <!-- <h1>
+          <a href="<?php //echo home_url( '/' ); ?>" title="<?php //bloginfo( 'name', 'display' ); ?>" rel="home">
+            <?php //bloginfo( 'name' ); ?>
+          </a>
+        </h1> -->
+
+      </div><!-- /headerBlurb -->
+    </header><!--/.header-->
 

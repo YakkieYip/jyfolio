@@ -271,11 +271,11 @@ function get_post_parent($post) {
 // Add Class to Wordpress Menu List Items
 // Adds Class to each <li> in the menu
 				//  vvvvv this is the hook                  vvv you can leave as 10, 2 is the number of arguments is what you expect to be passed, (1)
-add_filter('nav_menu_css_class' , 'customAddClassFunc' , 10 , 2);
-function customAddClassFunc($classes, $item){
-    $classes[] = 'hvr-underline-from-center';
-    return $classes;
-}
+// add_filter('nav_menu_css_class' , 'customAddClassFunc' , 10 , 2);
+// function customAddClassFunc($classes, $item){
+//     $classes[] = 'hvr-underline-from-center';
+//     return $classes;
+// }
 
 // Add Custom Class to the Links inside of a WordPress Menu
 add_filter('nav_menu_link_attributes' , 'addClassToLink' , 10 , 1);
@@ -286,4 +286,5 @@ function addClassToLink($attrs){
 
 // add_filter()
 
-show_admin_bar( true );
+// show_admin_bar( true );
+show_admin_bar( false );

@@ -5,103 +5,149 @@
 */
 
 get_header();  ?>
+<!-- ================================ END HEADER ==================================-->
 
+
+<!-- ============================= BEGIN MAIN ==================================-->
 <div class="main">
   <div class="container">
     <div class="content">
 
+    <!-- =========================== BEGIN PROJECTS ================================ -->
+      <section id="projects" class="projects">
+        <h4>Projects</h4>
+       <!-- <div class="container"> -->
+        <?php // Start the loop?>
+        <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+           
+          <?php
+          // Start our custom query to grab project pieces
+          
+            $projectsQuery = new WP_Query(
+              array(
+                'posts_per_page' => -1, // fat arrow is used with php arrays
+                'post_type' => 'project',
+                'order' => 'ASC'
+                )
+            ); ?>
 
-    <!-- ======================= PORTFOLIO ========================== -->
-      <?php // Start the loop ?>
-      <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-
-        <?php
-        // Start our Custom Query
-        $projectsQuery = new WP_Query(
-          array(
-            'posts_per_page' => -1, //fat arrow for arrays
-            'post_type' => 'project',
-            'order' => 'ASC'
-            )
-        ); ?>
-
-        <?php //this returns a boolean, ie: while this is still true, single arrow = method ?>
-        <?php if ( $projectsQuery->have_posts() ) : ?>
-          <!-- while we have posts, go do stuff to them  vvvvvvvv sets up any fields that are avail.-->
-          <?php while ($projectsQuery->have_posts()) : $projectsQuery->the_post(); ?>
-
-            <!-- get the title of your projects, grab the title of your projects = post_name -->
-            <section id="<?php echo $post->post_name; ?>">
-              <?php $image = get_field('image'); ?>
-              <!--<pre><?php //print_r($image);?></pre> -->
-              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']?>">
-
-              <!-- Title Project -->
-              <h2><?php the_title(); ?></h2>
+            <?php // This returns a Boolean, ie: while this is still true, single arrow = method ?>
+            
+            <?php if ( $projectsQuery->have_posts() ) : ?>
               
-              <!-- Project Description -->
-              <?php the_content(); ?>
+              <?php // While we have posts, go do stuff to them. vvv sets up any fields that are available. ?>
 
-              <p><?php the_sub_field(''); ?></p>
-              <div class="projects">
-              <!-- when you have stuff in the sub fields (ie: 1-lvl deep inside the repeater), do stuff -->
-                <p>Built with:</p>
-                <?php while( has_sub_field('technologies') ): ?>
-                  <!-- when you have stuff (parent) inside, go do stuff -->
-                  <div class="project">
-                  <!-- I'm the stuff / sub fields inside the parent! -->
+              <?php while ($projectsQuery->have_posts()) : $projectsQuery->the_post(); ?>
 
-                    <p><?php the_sub_field('technology'); ?></p>
-                    <?php $image = get_sub_field('image'); ?>
-                    <img src="<?php echo $image['sizes']['square'] ?>">
-                  </div>
+                <!-- =========================== PROJECTS PIECES ================================ -->
+             
+                <?php // Grab the title of your projects = post_name and use it as id for your div ?>
+                    <div id="<?php echo $post->post_name; ?>" class="projPiece">
 
-                <?php endwhile; ?> <!-- /technologies loop-->
-              </div> <!-- /.projects -->
-            </section>
-          <?php endwhile; ?> <!-- /$projectsQuery loop-->
+                      <?php //store in variable ?>
+                      <?php $image = get_field('image'); ?>
+                      <!--<pre><?php //print_r($image);?></pre> -->
+                      
+                      <!-- PROJECT IMAGE SCREENSHOT -->
+                      <div class="projImage" style="background-image: url(<?php echo $image['url']; ?>);">
+                        <?php // Display the PROJECT IMAGE on the page ?>
+                        <!-- <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']?>"> -->
+                      </div><!-- /.projImage -->
+                      
+                      <!-- PROJECT DESCRIPTION DETAILS -->
+                      <div class="projDetails">
+                        <?php // Display Project Title ?>
+                        <h5><?php the_title(); ?></h5>
+                        
+                        <?php // Project Description ?>
+                        <?php the_content(); ?>
 
-          <?php wp_reset_postdata(); ?>
+                        <?php // when you have stuff in the sub fields (ie: 1-lvl deep inside the repeater), do stuff ?>
+                          <p class="built">Built with:</p>
+                          <ul class="techUsed">
+                            <?php // when you have stuff inside the repeater parent, go do stuff ?>
+                            <?php while( has_sub_field('technologies') ): ?>
 
-          <?php else:  ?>
-            <!-- [stuff that happens if there aren't any posts] -->
-          <?php endif; ?>
+                              <?php // I'm the stuff / sub fields inside the parent! ?>
+                                <?php // Project Tech Skills Used ?>
+                                  <li><?php the_sub_field('technology'); ?><span>/</span></li>
+                                <?php //$image = get_sub_field('image'); ?>
+                                <!-- <img src="<?php //echo $image['sizes']['square'] ?>"> -->
 
-      <?php endwhile; // end '.content' loop?>
+                          <?php endwhile; ?>
+                          </ul>
+                          <a href="<?php the_field('proj_link'); ?>" target="_blank" class="btn">Launch Project</a>
+                      </div><!-- /.projDetails-->
+                    </div><!-- /#id post name, /.projPiece -->
+    
+              <?php endwhile; ?> 
+              <?php //end $projectsQuery loop ?>
 
-       <?php the_content(); ?>
+              <?php wp_reset_postdata(); ?>
 
+              <?php else:  ?>
+              <!-- [stuff that happens if there aren't any posts] -->
+              <?php endif; ?>
+
+        <?php endwhile; // end '.content' loop?>
+      <!--   </div>/container -->
+      </section> <!-- /.projects-->
+      <!-- =========================== END PROJECTS ================================ -->
+      
+
+
+      <!-- =========================== BEGIN ABOUT ================================ -->
+       <?php //Display WYSIWYG content ?>
+       
+      <section id="about" class="about">
+        <h4>About</h4>
+        <!-- <div class="container"> -->
+          <?php the_content(); ?>
+        <!-- </div> -->
+      </section>
+      <!-- =========================== END ABOUT ================================ -->
 
 
       <!-- ========================== SKILLS SECTION ==========================-->
       <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <?php if( have_rows('skills') ): ?>
+        <h4>Skills</h4>
+        <!-- <div class="container"> -->
+          <?php if( have_rows('skills') ): ?>
 
-          <ul class="skillList">
-            <?php while( have_rows('skills') ): the_row(); 
-              $skill = get_sub_field('the_skill');
-              ?>
+            <ul class="skillList">
+              <?php while( have_rows('skills') ): the_row(); 
+                $skill = get_sub_field('the_skill');
+                ?>
 
-              <li class="skillItem">
-                <p><?php echo $skill; ?></p>
-                <i class="fa fa-<?php the_sub_field('fa_classes'); ?>"></i>
-                <i class="devicons devicons-<?php the_sub_field('devicon_classes'); ?>"></i>
-              </li>
+                <li class="skillItem">
+                  <i class="fa fa-<?php the_sub_field('fa_classes'); ?>"></i>
+                  <i class="devicons devicons-<?php the_sub_field('devicon_classes'); ?>"></i>
+                  <p><?php echo $skill; ?></p>
+                </li>
 
-            <?php endwhile; ?> <!-- end '.skillList' loop-->
-          </ul>
+              <?php endwhile; ?> <!-- end '.skillList' loop-->
+            </ul>
 
-        <?php endif; ?>
+          <?php endif; ?>
+        <!-- </div> -->
       </section><!-- /section.skills-->
+      
+      <!-- ======================= END SKILLS SECTION ==========================-->
 
+      <!-- ======================= BEGIN CONTACT SECTION ==========================-->
 
       <section id="contact" class="contact">
-       <?php echo do_shortcode( '[contact-form-7 id="31" title="Contact form 1"]' ); ?>
+        <h4>Contact</h4>
+        <div class="formWrap">
+          <?php echo do_shortcode( '[contact-form-7 id="31" title="Contact form 1"]' ); ?>
+       </div>
       </section>
+
+      <!-- ======================= END CONTACT SECTION ==========================-->
 
     </div> <!-- /.content -->
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
+<!-- ======================= BEGIN FOOTER SECTION ==========================-->
 <?php get_footer(); ?>

@@ -26,7 +26,7 @@ Colour Mixins
 $black: #333;
 
 // Call To Action, Accent Color
-$purp: #6A2E8F;
+$purple: #6A2E8F;
 
 //Paragraph Color
 $darkgrey: #999;
@@ -43,9 +43,9 @@ $offwhite: #f4f4f4;
 
 
 /*
-====================================
-Default Styling
-====================================
+===============================================================
+Typography Mixins
+===============================================================
 */
 
 @mixin fontSize($number) {
@@ -57,23 +57,49 @@ Default Styling
 // font-family: 'Lato', sans-serif;
 // font-family: 'Montserrat', sans-serif;
 
-// *********************** GENERAL ***********************
+/*
+===============================================================
+General Styling
+===============================================================
+*/
 
 html {
-	font-size: 62.5%;
+	font-size: 62.5%; // browser's default 16px set to 10 px
 }
 
 body, p {
     font-family: 'Lato', sans-serif;
     @include fontSize(14);
-    color: #333;
+    color: $black;
+    margin: 0;
+    padding: 0;
+    // letter-spacing: 1px;
 }
+
+// p {
+// 	line-height: 24px;
+// }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
-	margin: 0;
-	padding: 0;
+	// margin: 0;
+	// padding: 0;
+	color: $purple;
+}
+
+h5 {
+	text-transform: uppercase;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	@include fontSize(15);
+}
+
+section h4 {
+	@include fontSize(18);
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 40px
 }
 
 img {
@@ -89,34 +115,35 @@ ul {
 }
 
 //logo within nav?
-header .logo span {
+nav .logo {
     display: inline-block;
-    width: 100%;
-    letter-spacing: 2px;
-    margin: 0px;
-    margin-top: 20px;
-    display: inline-block;
-    width: 100%;
-    font-size: 18px;
-    font-family: 'Montserrat';
+    max-width: 40%;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    @include fontSize(18);
 }
 
 .container {
-	max-width: 1200px;
-	margin-left: 17%;
+	width: 83%;
+	float: right;
+	padding: 0 100px;
 }
 
-.content {
-	float: left;
-	width: 65%;
-	margin-right: 5%;
-}
+// .content {
+// 	float: left;
+// 	width: 65%;
+// 	margin-right: 5%;
+// }
 
 .full {
 	width: 100%;
 }
 
-// *************** Nav Style ********************
+/*
+===============================================================
+Fixed Main Nav Styling
+===============================================================
+*/
 
 nav.fixedNav {
 	// display: flex;
@@ -128,37 +155,41 @@ nav.fixedNav {
 	z-index: 9999999;
 	left: 0;
 	background: rgba(241,241,241,0.95);
-	padding-top: 20%;
+	padding-top: 10%;
    text-align: center;
 }
 
-header .open-navigation {
-    position: absolute;
-    width: 0px;
-    left: 80px;
-    background: rgba(241,241,241,0.95);
-    height: 100%;
-    top: 0px;
-    z-index: -99;
-    opacity: 0;
-    transition: all 0.4s ease-in-out;
-}
+// header .open-navigation {
+//     position: absolute;
+//     width: 0px;
+//     left: 80px;
+//     background: rgba(241,241,241,0.95);
+//     height: 100%;
+//     top: 0px;
+//     z-index: -99;
+//     opacity: 0;
+//     transition: all 0.4s ease-in-out;
+// }
 
 
-// Header Syles
+/*
+===============================================================
+Header Styling
+===============================================================
+*/
 
-.hero {
-	background: url('images/jyfolioHero2.jpg') no-repeat;
-	// -webkit-background-size: cover;
-	// -moz-background-size: cover;
-	// -o-background-size: cover;
-	background-position: right top;
-	// background-size: cover;
-}
-
-.hero h1 {
-	padding: 250px;
-	margin: 0 200px;
+header {
+    background: url(images/jyfolioHero2.jpg) right top no-repeat;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height: 100vh;
+	.headerBlurb {
+		width: 46%;
+	   padding-left: 20%;
+	   text-align: left;
+	   margin-bottom: 270px;
+	}
 }
 
 // NAV MENU ITEMS
@@ -168,4 +199,174 @@ nav ul.menu {
 	flex-direction: column;
 }
 
+/*
+===============================================================
+Project Styling
+===============================================================
+*/
 
+.projects {
+	margin: 0 auto;
+}
+
+.projDetails p {
+	color: $darkgrey;
+	margin-bottom: 20px;
+}
+
+.projDetails .built {
+	margin-bottom: 10px;
+}
+
+// Parent container
+.projPiece {
+	// max-width: 90%;
+	margin: 20px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: nowrap; //flex-wrap: wrap; media query?
+	align-items: flex-start;
+
+	&:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+}
+
+.projImage, .projDetails {
+	display: block;
+	align-self: stretch;
+	position: relative;
+}
+
+.projImage {
+	width: 65%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-color: #000;
+	// border: 1px solid $black;
+}
+
+.projDetails {
+	width: 35%;
+	background: $lightgrey;
+	padding: 45px 40px;
+	// border: 1px solid $purple;
+}
+
+ul.techUsed {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	color: $darkgrey;
+	li span {
+		padding: 0 5px;
+	}
+}
+
+ul.techUsed li:nth-child(1) {
+	padding-left: 0;
+}
+
+.btn {
+	color: $black;
+	border: 2px solid $black;
+	letter-spacing: 1px;
+	display: inline-block;
+	padding: 12px 20px;
+	margin-top: 25px;
+	font-family: 'Montserrat';
+	@include fontSize(12);
+	text-transform: uppercase;
+	font-weight: bold;
+	transition: all 0.4s ease-in-out;
+	cursor: pointer;
+	&:hover {
+		border: 2px solid $purple;
+		background: $purple;
+		color: $offwhite; 
+	}
+}
+
+
+/*
+===============================================================
+Skills Styling
+===============================================================
+*/
+
+ul.skillList {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+li.skillItem {
+	width: calc(33.33% - 20px);
+	text-align: center;
+	padding: 93px 20px;
+	margin: 10px;
+	background: lightgray;
+	i {
+		@include fontSize(60);
+	}
+	p {
+		margin: 10px 0;
+	}
+}
+
+/*
+===============================================================
+Contact Styling
+===============================================================
+*/
+
+.contact {
+	margin: 0 auto;
+	.formWrap {
+		width: 500px;
+		margin: 0 auto;
+	}
+}
+
+input, textarea {
+	width: 100%;
+	border-bottom: 1px solid grey;
+}
+
+input[type=submit] {
+	width: 50%;
+}
+
+
+/*
+===============================================================
+Footer Styling
+===============================================================
+*/
+
+footer {
+	text-align: center;
+}
+
+
+/*
+===============================================================
+MEDIA QUERIES
+===============================================================
+*/
+
+@media( max-width: 1000px ) {
+	.projPiece, .projPiece:nth-child(even) {
+		flex-direction: column;
+	}
+	
+	.projImage {
+		min-height: 300px;
+		border-bottom: none;
+	}
+
+	.projImage, .projDetails {
+		width: 100%;
+	}
+}

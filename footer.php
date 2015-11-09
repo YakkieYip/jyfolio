@@ -1,11 +1,10 @@
 
-<!-- ========================== FOOTER ============================== -->
 <footer>
   <div class="container">
-    <p>&copy; HackerYou <?php echo date('Y'); ?></p>
+    <p>&copy; Jackie Yip <?php echo date('Y'); ?></p>
   </div>
 </footer>
-<!-- ========================= /footer ============================== -->
+<!-- ====================== END FOOTER ============================== -->
 
 
 <!-- SCRIPTS -->
