@@ -153,7 +153,7 @@ nav.fixedNav {
 	// display: flex;
 	display: flex;
 	flex-direction: column;
-	max-width: 20%;
+	max-width: 17%;
 	width: 17%;
 	height: 100vh;
 	position: fixed;
@@ -170,7 +170,17 @@ nav.fixedNav {
 }
 
 .social {
-	margin-top: 50px;
+	margin-top: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	// justify-content: space-between;
+	// justify-content: space-around;
+	flex-wrap: wrap;
+	i {
+		padding: 0 5px;
+	}
 }
 
 /*
@@ -210,20 +220,23 @@ Project Styling
 	margin: 0 auto;
 }
 
+.projDetails .built {
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	color: $black;
+}
+
 .projDetails p {
 	line-height: 24px;
 	color: $darkgrey;
 	margin-bottom: 20px;
 }
 
-.projDetails .built {
-	margin-bottom: 10px;
-}
 
 // Parent container
 .projPiece {
 	// max-width: 90%;
-	margin: 20px 0;
+	margin-top: 55px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
@@ -246,8 +259,14 @@ Project Styling
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	background-color: #000;
+	background-color: $lightgrey;
 	// border: 1px solid $black;
+
+	//   width: 65%;
+	//   background-repeat: no-repeat;
+	//   background-position: center center;
+	//   background-size: contain;
+	//   background-color: lightgrey;
 }
 
 .projDetails {
@@ -291,25 +310,28 @@ ul.techUsed li:nth-child(1) {
 	}
 }
 
-
 /*
 ===============================================================
 About Styling
 ===============================================================
 */
-
 .about p {
-	margin: 25px 0;
+	margin: 25px 45px 10px 25px;
 	letter-spacing: 1px;
+}	
+
+.aboutWrap {
+	background: $lightgrey;
+	padding: 35px 15px;
 }
 
 .sentence {
 	color: $purple;
-	@include fontSize(17);
+	@include fontSize(16);
 }
 
 .sentence.first {
-	@include fontSize(20);
+	@include fontSize(22);
 }
 
 
@@ -327,11 +349,11 @@ ul.skillList {
 li.skillItem {
 	width: calc(33.33% - 20px);
 	text-align: center;
-	padding: 30px 20px;
+	padding: 35px 20px 15px;
 	margin: 10px;
 	background: $lightgrey;
 	transition: all 0.3s ease-in-out;
-	i {
+	i.devicons, i.fa {
 		@include fontSize(60);
 		color: $purple;
 		transition: all 0.3s ease-in-out;
@@ -339,20 +361,18 @@ li.skillItem {
 	p {
 		margin: 15px 0;
 		text-transform: uppercase;
-		font-weight: 700;
+		font-weight: 400;
 		transition: all 0.3s ease-in-out;
 	}
 }
 
-li.skillItem:hover i {
-	color: $black;
-	// transition: all 0.3s ease-in-out;
-}
+// li.skillItem:hover i {
+// 	color: $black;
+// }
 
-li.skillItem:hover p {
-	color: $purple;
-	// transition: all 0.3s ease-in-out;
-}
+// li.skillItem:hover p {
+// 	color: $purple;
+// }
 
 /*
 ===============================================================
@@ -435,4 +455,16 @@ MEDIA QUERIES
 	.projImage, .projDetails {
 		width: 100%;
 	}
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
 }

@@ -8,7 +8,8 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900,900italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css">
+    <link type="image/png" href="images/faviconLogo.png" rel="icon">
 
     <?php // Load our CSS ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />

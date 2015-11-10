@@ -93,17 +93,13 @@ get_header();  ?>
       <!--   </div>/container -->
       </section> <!-- /.projects-->
       <!-- =========================== END PROJECTS ================================ -->
-      
-
-
       <!-- =========================== BEGIN ABOUT ================================ -->
        <?php //Display WYSIWYG content ?>
-       
       <section id="about" class="about">
         <h4>About</h4>
-        <!-- <div class="container"> -->
+        <div class="aboutWrap">
           <?php the_content(); ?>
-        <!-- </div> -->
+        </div>
       </section>
       <!-- =========================== END ABOUT ================================ -->
 
