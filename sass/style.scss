@@ -173,13 +173,19 @@ nav.fixedNav {
 	margin-top: 70px;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	// justify-content: space-between;
 	// justify-content: space-around;
-	flex-wrap: wrap;
 	i {
-		padding: 0 5px;
+		transition: all 0.4s ease-in-out;
+		color: $black;
+		padding: 0 10px;
+		// padding: 10px 0;
+		&:hover {
+			color: $purple;
+		}
 	}
 }
 
