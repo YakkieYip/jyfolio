@@ -150,7 +150,6 @@ Fixed Main Nav Styling
 */
 
 nav.fixedNav {
-	// display: flex;
 	display: flex;
 	flex-direction: column;
 	max-width: 17%;
@@ -160,13 +159,20 @@ nav.fixedNav {
 	opacity: 1;
 	z-index: 9999999;
 	left: 0;
-	background: rgba(241,241,241,0.95);
 	padding-top: 10%;
    text-align: center;
+	background: rgba(241,241,241,0.95);
    li {
    	text-align: left;
-   	padding-left: 70px;
+   	padding: 10px 30%;
    }
+}
+
+// NAV MENU ITEMS
+
+nav ul.menu {
+	display: flex;
+	flex-direction: column;
 }
 
 .social {
@@ -181,13 +187,14 @@ nav.fixedNav {
 	i {
 		transition: all 0.4s ease-in-out;
 		color: $black;
-		padding: 0 10px;
+		padding: 0 5px;
 		// padding: 10px 0;
 		&:hover {
 			color: $purple;
 		}
 	}
 }
+
 
 /*
 ===============================================================
@@ -196,11 +203,12 @@ Header Styling
 */
 
 header {
-    background: url(images/jyfolioHero2.jpg) right top no-repeat;
+    background-image: url(images/jyfolioHero2.jpg);
     display: flex;
     align-items: center;
     background-size: cover;
     height: 100vh;
+    //height set height to auto at mobile.
 	.headerBlurb {
 		width: 46%;
 	   padding-left: 20%;
@@ -209,12 +217,7 @@ header {
 	}
 }
 
-// NAV MENU ITEMS
 
-// nav ul.menu {
-// 	display: flex;
-// 	flex-direction: column;
-// }
 
 /*
 ===============================================================
@@ -340,6 +343,11 @@ About Styling
 	@include fontSize(22);
 }
 
+.sentence.last {
+	@include fontSize(18);
+}
+
+
 
 /*
 ===============================================================
@@ -441,14 +449,60 @@ footer {
 	}
 }
 
+footer .socialFooter {
+	display: none;
+}
+
 
 /*
 ===============================================================
 MEDIA QUERIES
 ===============================================================
 */
+//nth-child has more specifity than media queries. make sure to specify both.
 
-@media( max-width: 1000px ) {
+@media( max-width: 1210px) {
+	header {
+   	background-image: url(images/jyfolioHero2.jpg);
+    // display: flex;
+    // align-items: center;
+    	background-size: cover;
+    // height: auto;
+    //height set height to auto at mobile.
+		.headerBlurb {
+			// width: 54%;
+			// padding-left: 20%;
+			// text-align: left;
+			// margin-bottom: 250px;
+			// margin: 200px 0 250px;
+		}
+	}
+}
+
+@media( max-width: 1100px ) {
+	header {
+		background-image: url(images/jyfolioHero2.jpg);
+    // display: flex;
+    // align-items: center;
+    	// background-size: cover;
+    	height: auto;
+    //height set height to auto at mobile.
+		.headerBlurb {
+			width: 48%;
+			padding-left: 22%;
+			// text-align: left;
+			margin-top: 250px;
+
+		}
+		//Original
+		// .headerBlurb {
+		// width: 46%;
+	 //   padding-left: 20%;
+	 //   text-align: left;
+	 //   margin-bottom: 270px;
+	}
+
+
 	.projPiece, .projPiece:nth-child(even) {
 		flex-direction: column;
 	}
@@ -461,16 +515,214 @@ MEDIA QUERIES
 	.projImage, .projDetails {
 		width: 100%;
 	}
+
+
+	nav.fixedNav {
+		max-width: 17%;
+		width: 17%;
+		padding-top: 10%;
+	   // text-align: center;
+	   li {
+	   	// text-align: left;
+	   	padding: 15px 26%;
+	   }
+	}
+
+	.social {
+	margin-top: 50px;
+	// display: flex;
+	flex-direction: column;
+	// flex-wrap: wrap;
+	// justify-content: center;
+	// align-items: center;
+	// justify-content: space-between;
+	// justify-content: space-around;
+		i {
+			transition: all 0.4s ease-in-out;
+			color: $black;
+			padding: 10px 5px;
+		}
+	}
+
+}
+
+// Desktop smaller break point
+@media (max-width: 1000px) {
+	nav.fixedNav {
+		max-width: 17%;
+		width: 17%;
+		padding-top: 10%;
+	   // text-align: center;
+	   li {
+	   	// text-align: left;
+	   	padding: 15px 23%;
+	   }
+	}
+
+	nav ul.menu {
+		@include fontSize(12);
+	}
 }
 
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
+		
+		h1.hero {
+			@include fontSize(18);
+		}
+
+		header .headerBlurb {
+		    width: 45%;
+		    padding-left: 21%;
+		    margin-top: 150px;
+		}
+
+		nav .logo {
+	    // display: inline-block;
+	    max-width: 55%;
+	    // letter-spacing: 1px;
+	    margin-bottom: 45px;
+	    // @include fontSize(18);
+	}
+
 }
+
+
+// @media (max-width: 880px) {
+
+// }
+
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
+	nav.fixedNav {
+	   // text-align: center;
+		.logo {
+			// min-width: 50px;
+		}
+
+	   li {
+	   	// text-align: left;
+	   	padding: 15px 19%;
+	   }
+	}
 }
 
+
+/* Smaller break point */
+@media (max-width: 680px) {
+	nav.fixedNav {
+		padding-top: 20%;
+	   // text-align: center;
+	   li {
+	   	// text-align: left;
+	   	padding: 10px 15%;
+	   }
+	}
+}
+
+
+
+
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media (max-width: 800px) {
+	nav.fixedNav {
+		display: flex;
+		flex-direction: row;
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		position: fixed;
+		opacity: 1;
+		z-index: 9999999;
+		top: 0;
+		left: 0;
+		padding: 10px 15px;
+	   text-align: center;
+		.logo {
+			width: 50px;
+			max-width: none;
+			// width: 100%;
+			// height: auto;
+			margin: 0;
+			margin-right: 10px;
+		}
+	   li {
+	   	// @include fontSize(12);
+	   	text-align: left;
+	   	padding: 0;
+	   }
+	}
+
+// NAV MENU ITEMS
+
+	nav ul.menu {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		li a {
+			color: #333;
+			@include fontSize(10);
+			padding: 20px 6px;
+		}
+	}
+
+	.social {
+		margin-top: 70px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		// justify-content: space-between;
+		// justify-content: space-around;
+		i {
+			transition: all 0.4s ease-in-out;
+			color: $black;
+			padding: 0 5px;
+			// padding: 10px 0;
+			&:hover {
+				color: $purple;
+			}
+		}
+	}
+	
+	#jackieyip {
+		height: 500px;
+		background-position: 75% center;
+		margin-top: 74px;
+		display: block;
+		.headerBlurb {
+			margin-top: 74px;
+			padding: 500px 5% 0;
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	.social {
+		display: none;
+	}
+	
+	.container {
+		width: 100%;
+		float: none;
+		padding: 0;
+		margin-top: 50px;
+	}
+	
+	.contact .formWrap {
+		width: 100%;
+		padding: 0 30px;
+	}
+
+	footer .socialFooter {
+		display: block;
+		width: 100%;
+		text-align: center;
+		a {
+			padding: 0 20px;
+		}
+	}
+
 }
