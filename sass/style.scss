@@ -467,7 +467,7 @@ MEDIA QUERIES
     // display: flex;
     // align-items: center;
     	background-size: cover;
-    // height: auto;
+    	// height: auto;
     //height set height to auto at mobile.
 		.headerBlurb {
 			// width: 54%;
@@ -478,6 +478,9 @@ MEDIA QUERIES
 		}
 	}
 }
+
+
+// ===============================================================
 
 @media( max-width: 1100px ) {
 	header {
@@ -543,8 +546,10 @@ MEDIA QUERIES
 			padding: 10px 5px;
 		}
 	}
-
 }
+
+
+// ===============================================================
 
 // Desktop smaller break point
 @media (max-width: 1000px) {
@@ -564,9 +569,10 @@ MEDIA QUERIES
 	}
 }
 
+// ===============================================================
+
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
-		
 		h1.hero {
 			@include fontSize(18);
 		}
@@ -584,46 +590,11 @@ MEDIA QUERIES
 	    margin-bottom: 45px;
 	    // @include fontSize(18);
 	}
-
 }
 
-
-// @media (max-width: 880px) {
-
-// }
-
+// ===============================================================
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
-	nav.fixedNav {
-	   // text-align: center;
-		.logo {
-			// min-width: 50px;
-		}
-
-	   li {
-	   	// text-align: left;
-	   	padding: 15px 19%;
-	   }
-	}
-}
-
-
-/* Smaller break point */
-@media (max-width: 680px) {
-	nav.fixedNav {
-		padding-top: 20%;
-	   // text-align: center;
-	   li {
-	   	// text-align: left;
-	   	padding: 10px 15%;
-	   }
-	}
-}
-
-
-
-
 /* Landscape phones and down */
 @media (max-width: 800px) {
 	nav.fixedNav {
@@ -668,25 +639,6 @@ MEDIA QUERIES
 		}
 	}
 
-	// .social {
-	// 	margin-top: 70px;
-	// 	display: flex;
-	// 	flex-direction: row;
-	// 	flex-wrap: wrap;
-	// 	justify-content: center;
-	// 	align-items: center;
-	// 	// justify-content: space-between;
-	// 	// justify-content: space-around;
-	// 	i {
-	// 		transition: all 0.4s ease-in-out;
-	// 		color: $black;
-	// 		padding: 0 5px;
-	// 		// padding: 10px 0;
-	// 		&:hover {
-	// 			color: $purple;
-	// 		}
-	// 	}
-	// }
 	
 	#jackieyip {
 		height: 500px;
@@ -725,9 +677,9 @@ MEDIA QUERIES
 			padding: 0 20px;
 		}
 	}
-
 }
 
+// ===============================================================
 
 /* Landscape phones and down */
 @media (max-width: 600px) {
@@ -751,23 +703,28 @@ MEDIA QUERIES
 	}
 }
 
+// ===============================================================
 
-// @media (max-width: 480px) {
-// 		nav ul.menu {
-// 			margin: 0 auto;
-// 			display: flex;
-// 			flex-direction: row;
-// 			li {
-// 		   	// @include fontSize(12);
-// 		   	text-align: left;
-// 		   	padding: 0 5px;
-// 		   	margin: 0 10px;
-// 		   }
-// 			li a {
-// 				color: #333;
-// 				@include fontSize(10);
-// 				padding: 20px 6px;
-// 			}
-// 		}
-// 	}
-// }
+
+// Iphone 5
+@media (max-width: 320px) {
+	// NAV MENU ITEMS
+
+	nav ul.menu {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		li {
+	   	// @include fontSize(12);
+	   	text-align: left;
+	   	padding: 0;
+	   	margin: 0;
+	   }
+		li a {
+			color: #333;
+			@include fontSize(10);
+			padding: 20px 6px;
+		}
+	}
+}
+
