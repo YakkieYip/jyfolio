@@ -726,5 +726,37 @@ MEDIA QUERIES
 			padding: 20px 6px;
 		}
 	}
+
+	li.skillItem {
+		width: calc(33.33% - 20px);
+		text-align: center;
+		padding: 25px 5px 10px;
+		margin: 10px;
+		background: $lightgrey;
+		transition: all 0.3s ease-in-out;
+		i.devicons, i.fa {
+			@include fontSize(40);
+			color: $purple;
+			transition: all 0.3s ease-in-out;
+		}
+		p {
+			@include fontSize(10);
+			margin: 10px 0;
+			text-transform: uppercase;
+			font-weight: 400;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+
+	input[type=submit] {
+    margin-top: 20px;
+    width: 100%;
+    // padding: 15px;
+    // border: 1px solid #6A2E8F;
+    // background: 0 0;
+    // -webkit-transition: all .4s ease-in-out;
+    // transition: all .4s ease-in-out;
+	}
+
 }
 
